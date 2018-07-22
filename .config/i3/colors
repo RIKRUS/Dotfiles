@@ -1,0 +1,33 @@
+[theme]
+	background	= #090808
+	foreground	= #FFFFFF
+	color1		= #
+	color2		= #
+	color3		= #
+	color4		= #
+	color5		= #
+	opacity		= #
+
+[font]+                          
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+   .   
+	font-0 = monofur:fontformat=truetype:size=11;1
+	font-1 = monofur:fontformat=truetype:size=11;1
+	font-2 = FontAwesome:fontformat=truetype:size=9;1
+	font-3 = MonofurNerdFont:fontformat=truetype:size=14;1
+	font-4 = serif:fontformat=truetype:size=14;1

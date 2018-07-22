@@ -1,0 +1,349 @@
+﻿;=====================================================
+;
+;   To learn more about how to configure Polybar
+;   go to https://github.com/jaagr/polybar
+;
+;   The README contains alot of information
+;
+;=====================================================
+
+[colors]
+background = ${xrdb:color0:#222}
+foreground = ${xrdb:color7:#222}
+foreground-alt = ${xrdb:color7:#222}
+primary = ${xrdb:color1:#222}
+secondary = ${xrdb:color2:#222}
+alert = ${xrdb:color3:#222}
+my_color0	= ${xrdb:color0:#222}
+my_color1	= ${xrdb:color1:#222}
+my_color2	= ${xrdb:color2:#222}
+my_color3	= ${xrdb:color3:#222}
+my_color4	= ${xrdb:color4:#222}
+my_color5	= ${xrdb:color5:#222}
+my_color6	= ${xrdb:color6:#222}
+my_color7	= ${xrdb:color7:#222}
+my_color8	= ${xrdb:color8:#222}
+my_color9	= ${xrdb:color9:#222}
+my_color10	= ${xrdb:color10:#222}
+my_color11	= ${xrdb:color11:#222}
+my_color12	= ${xrdb:color12:#222}
+my_color13	= ${xrdb:color13:#222}
+my_color14	= ${xrdb:color14:#222}
+my_color15	= ${xrdb:color15:#222}
+
+[bar/main]
+bottom = false
+width = 100%
+height = 24
+offset-x = 0
+offset-y = 0
+radius = 0.0
+fixed-center = true
+
+background = ${colors.background}
+foreground =  ${colors.foreground}
+
+line-size = 3
+line-color = ${colors.primary}
+
+border-size = 0
+border-color = ${colors.my_color2}
+
+padding-left = 0
+padding-right = 0
+
+module-margin-left = 0
+module-margin-right = 0
+
+;Fonts
+font-0 = "monaco:fontformat=truetype:size=11;1"
+font-1 = "Font Awesome 5 Free:antialias=true:style=regular:size=11;1"
+font-2 = "Font Awesome 5 Free:antialias=true:style=solid:size=11;1"
+font-3 = "Font Awesome 5 Brands:style=regular:size=11;1"
+font-4 = "monofur:fontformat=truetype:size=12;1"
+
+;Modules
+modules-left  = i3
+modules-center  =
+modules-right = eth xkeyboard volume powermenu
+
+separator = " "
+
+wm-restack = i3
+
+;override-redirect = true
+
+;scroll-up = i3wm-wsnext
+;scroll-down = i3wm-wsprev
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+[bar/second]
+
+enable-ipc = true
+
+bottom = false
+width = 100%
+height = 24
+padding-left = 0
+padding-right = 0
+module-margin-left = 0
+module-margin-right = 0
+
+separator = " "
+
+modules-left = cpu memory
+modules-center = xwindow
+modules-right = date
+
+background = ${colors.background}
+foreground =  ${colors.foreground}
+tray-offset-y = 24
+tray-position = right
+tray-padding = 1
+tray-transparent = false
+
+tray-maxsize = 18
+tray-detached = false
+tray-background = ${colors.my_color0}
+line-size = 3
+line-color = ${colors.primary}
+
+;Fonts
+font-0 = "monaco:fontformat=truetype:size=11;1"
+font-1 = "Font Awesome 5 Free:antialias=true:style=regular:size=11;1"
+font-2 = "Font Awesome 5 Free:antialias=true:style=solid:size=11;1"
+font-3 = "Font Awesome 5 Brands:style=regular:size=11;1"
+font-4 = "monofur:fontformat=truetype:size=12;1"
+
+[module/xwindow]
+type = internal/xwindow
+label = %title:0:30:...%
+label-padding = 0
+label-foreground = ${colors.foreground}
+
+[module/xkeyboard]
+module-margin = 1
+type = internal/xkeyboard
+blacklist-0 = num lock
+format-padding = 1
+format = <label-layout>
+format-background = ${colors.primary}
+format-prefix = " "
+format-prefix-font = 3
+format-prefix-foreground = ${colors.my_color2}
+
+; Available tokens:
+;   %layout%
+;   %name%
+;   %number%
+; Default: %name%
+label-layout = %layout%
+;label-layout-background = ${colors.background}
+label-layout-foreground = ${colors.foreground}
+
+; Available tokens:
+;   %name%
+; Default: %name%
+label-indicator = %name%
+label-indicator-padding = 1
+label-indicator-background = ${colors.background}
+
+[module/i3]
+type = internal/i3
+
+format = <label-state> <label-mode>
+
+ws-icon-0 = 0;0
+ws-icon-1 = 1;
+ws-icon-2 = 2;2
+ws-icon-3 = 3;3
+ws-icon-4 = 4;4
+ws-icon-5 = 5;5
+ws-icon-6 = 6;6
+ws-icon-7 = 7;7
+ws-icon-8 = 8;8
+ws-icon-9 = 9;9
+ws-icon-font = 5
+
+label-unfocused-background = ${colors.background}
+label-unfocused-foreground = ${colors.foreground}
+
+label-mode = %icon%
+label-mode-padding = 1
+label-mode-background = ${colors.primary}
+
+label-focused = %icon%
+label-focused-foreground = ${colors.my_color2}
+label-focused-background = ${colors.primary}
+;label-focused-underline = ${colors.my_color3}
+label-focused-padding = 1
+
+label-unfocused = %icon%
+label-unfocused-padding = 1
+
+label-visible = %icon%
+label-visible-underline = ${colors.foreground}
+label-visible-padding = 1
+
+label-urgent = %icon%
+label-urgent-foreground = ${colors.foreground}
+label-urgent-background = ${colors.background}
+label-urgent-underline = ${colors.my_color1}
+label-urgent-padding = 1
+
+[module/cpu]
+type = internal/cpu
+interval = 2
+format-prefix = " "
+format-prefix-foreground = ${colors.my_color2}
+format-underline = ${colors.my_color1}
+label = %percentage:2%%
+format-padding = 1
+label-font = 5
+[module/memory]
+type = internal/memory
+interval = 2
+format-prefix = " "
+format-prefix-foreground = ${colors.my_color2}
+format-underline = ${colors.my_color1}
+label = %percentage_used%%
+label-font = 5
+[module/eth]
+type = internal/network
+interface = enp3s0
+
+; Seconds to sleep between updates
+; Default: 1
+interval = 10
+
+; Test connectivity every Nth update
+; A value of 0 disables the feature
+; NOTE: Experimental (needs more testing)
+; Default: 0
+;ping-interval = 3
+
+; @deprecated: Define min width using token specifiers (%downspeed:min% and %upspeed:min%)
+; Minimum output width of upload/download rate
+; Default: 3
+;udspeed-minwidth = 2
+
+; Accumulate values from all interfaces
+; when querying for up/downspeed rate
+; Default: false
+accumulate-stats = true
+
+; Consider an `UNKNOWN` interface state as up.
+; Some devices have an unknown state, even when they're running
+; Default: false
+unknown-as-up = false
+
+; Available tags:
+;   <label-connected> (default)
+;   <ramp-signal>
+label-connected = "%local_ip%"
+format-connected-prefix = " "
+format-connected-prefix-foreground = ${colors.my_color2}
+format-connected-padding = 1
+format-connected = %{T5}%{A1:nm-connection-editor:}<label-connected>%{A}%{T-}
+format-connected-foreground = ${colors.foreground-alt}
+format-connected-background = ${colors.primary}
+
+
+; Available tags:
+;   <label-disconnected> (default)
+format-disconnected-prefix-foreground = ${colors.my_color2}
+format-disconnected-prefix = " "
+format-disconnected =  %{A1:nm-connection-editor:}<label-disconnected>%{A}
+format-disconnected-padding = 1
+format-disconnected-foreground = ${colors.primary}
+format-disconnected-background = ${colors.foreground-alt}
+
+; Available tokens:
+;   %ifname%    [wireless+wired]
+;   %local_ip%  [wireless+wired]
+;   %essid%     [wireless]
+;   %signal%    [wireless]
+;   %upspeed%   [wireless+wired]
+;   %downspeed% [wireless+wired]
+;   %linkspeed% [wired]
+; Default: %ifname% %local_ip%
+
+
+; Available tokens:
+;   %ifname%    [wireless+wired]
+; Default: (none)
+label-disconnected = No Connect
+label-disconnected-foreground = ${colors.foreground}
+label-disconnected-background = ${colors.foreground-alt}
+
+[module/date]
+type = internal/date
+interval = 2
+time = %{T5}%H:%M%{T-}
+
+format-prefix-foreground = ${colors.my_color2}
+format-prefix = " "
+label-prefix-font = 3
+label = %time%
+format-padding = 1
+format-background = ${colors.foreground-alt}
+[module/volume]
+type = internal/volume
+
+format-volume = <ramp-volume> <label-volume>
+format-volume-padding = 1
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+ramp-volume-foreground = ${colors.my_color2}
+ramp-volume-font = 2
+label-volume-font = 5
+format-volume-background = ${colors.foreground-alt}
+
+format-muted-prefix-font = 2
+format-muted-padding = 1
+format-muted-prefix = 
+format-muted-prefix-foreground = ${colors.my_color2}
+label-muted = " muted"
+format-muted-background = ${colors.foreground-alt}
+
+[module/powermenu]
+type = custom/menu
+
+expand-right = true
+format-spacing = 1
+
+label-open = 
+format-padding = 1
+label-open-foreground = ${colors.secondary}
+label-close = cancel
+label-close-foreground = ${colors.secondary}
+label-separator = |
+label-separator-foreground = ${colors.foreground-alt}
+
+menu-0-0 = reboot
+menu-0-0-exec = menu-open-1
+menu-0-1 = power off
+menu-0-1-exec = menu-open-2
+
+menu-1-0 = cancel
+menu-1-0-exec = menu-open-0
+menu-1-1 = reboot
+menu-1-1-exec = sudo reboot
+
+menu-2-0 = power off
+menu-2-0-exec = sudo poweroff
+menu-2-1 = cancel
+menu-2-1-exec = menu-open-0
+
+[settings]
+screenchange-reload = true
+compositing-background = xor
+compositing-foreground = source
+compositing-border = over
+
+[global/wm]
+margin-top = 0
+margin-bottom = 0
